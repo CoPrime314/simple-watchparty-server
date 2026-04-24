@@ -6,7 +6,16 @@ const cors = require("cors");
 
 
 const app = express();
+app.use(express.json());
 app.use(cors());
+
+app.get('/', (req, res) => {
+  res.json({
+    status: "ok",
+    message: "Server is running",
+    time: Date.now()
+  });
+});
 
 const server = http.createServer(app);
 
